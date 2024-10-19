@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf4qlre0l1r2v"]
+
+[ext_resource type="Texture2D" uid="uid://bmu41eabl0smu" path="res://assets/images/based_stuuuuul.png" id="1_xav4k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67ddm"]
+radius = 27.0
+
+[node name="stul" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-5, 9)
+shape = SubResource("CircleShape2D_67ddm")
+
+[node name="BasedStuuuuul" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -4.76837e-07)
+scale = Vector2(0.181347, 0.181347)
+texture = ExtResource("1_xav4k")
