@@ -119,3 +119,5 @@ libraries = {
 position = Vector2(0, -3.57628e-07)
 scale = Vector2(0.358333, 0.358333)
 texture = ExtResource("1_0u281")
+
+[node name="Camera2D" type="Camera2D" parent="."]
