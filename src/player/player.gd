@@ -3,7 +3,7 @@ extends CharacterBody2D
 const PLAYER_SPEED = 400
 
 func _ready() -> void:
-	var mishail_texture = load(Global.SELECT_MISHAIL)
+	var mishail_texture = load(Global.CHARACTERS[Global.SELECT_CHARACTER_ID].path)
 	$Misha/MishaTheAgileMan.texture = mishail_texture
 
 
