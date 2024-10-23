@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbpptkabgnvn6"]
+
+[ext_resource type="Texture2D" uid="uid://clxgiqw1smnqh" path="res://assets/images/backgrounds/durka_stenii.jpg" id="1_ys0f2"]
+[ext_resource type="Script" path="res://src/scenes/back.gd" id="2_785f2"]
+[ext_resource type="Script" path="res://src/scenes/start_pls.gd" id="3_2txx6"]
+
+[node name="CharacterSelection" type="Node2D"]
+
+[node name="DurkaStenii" type="Sprite2D" parent="."]
+position = Vector2(811.5, 451)
+scale = Vector2(1.10333, 0.986)
+texture = ExtResource("1_ys0f2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+
+[node name="Border" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -731.0
+offset_top = -397.5
+offset_right = 731.0
+offset_bottom = 397.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="Control/Border"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+offset_right = 303.0
+grow_vertical = 0
+text = "всееее назаааад"
+script = ExtResource("2_785f2")
+
+[node name="start_pls" type="Button" parent="Control/Border"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -303.0
+offset_top = -73.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "НАЧАТТТ !!!"
+script = ExtResource("3_2txx6")
+
+[node name="Characters" type="GridContainer" parent="Control/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -324.5
+offset_right = 500.0
+offset_bottom = 250.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Control/Border/back" to="Control/Border/back" method="_on_pressed"]
+[connection signal="pressed" from="Control/Border/start_pls" to="Control/Border/start_pls" method="_on_pressed"]

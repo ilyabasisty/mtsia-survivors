@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgbx7vwbb1jvd"]
+
+[ext_resource type="Script" path="res://src/scenes/game.gd" id="1_bcwr1"]
+[ext_resource type="PackedScene" uid="uid://b8j467kdcaoxd" path="res://src/player/player.tscn" id="1_gelbp"]
+[ext_resource type="PackedScene" uid="uid://bf4qlre0l1r2v" path="res://src/objects/stul.tscn" id="2_pha0n"]
+[ext_resource type="PackedScene" uid="uid://ca8candb78ftu" path="res://src/enemies/mob.tscn" id="3_by0dc"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_bcwr1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1637.0
+offset_bottom = 939.0
+size_flags_vertical = 0
+color = Color(0.304267, 0.468149, 0.30296, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_gelbp")]
+position = Vector2(814, 473)
+
+[node name="stulia" type="Node" parent="."]
+
+[node name="stul2" parent="stulia" instance=ExtResource("2_pha0n")]
+position = Vector2(235, 162)
+
+[node name="stul" parent="stulia" instance=ExtResource("2_pha0n")]
+position = Vector2(779, 205)
+
+[node name="stul3" parent="stulia" instance=ExtResource("2_pha0n")]
+position = Vector2(180, 521)
+
+[node name="stul4" parent="stulia" instance=ExtResource("2_pha0n")]
+position = Vector2(1138, 626)
+
+[node name="stul5" parent="stulia" instance=ExtResource("2_pha0n")]
+position = Vector2(1351, 308)
+
+[node name="stul6" parent="stulia" instance=ExtResource("2_pha0n")]
+position = Vector2(369, 794)
+
+[node name="Mob" parent="." instance=ExtResource("3_by0dc")]
+position = Vector2(439, 192)
+
+[node name="Mob2" parent="." instance=ExtResource("3_by0dc")]
+position = Vector2(649, 130)
+
+[node name="Mob3" parent="." instance=ExtResource("3_by0dc")]
+position = Vector2(259, 627)
+
+[node name="Mob4" parent="." instance=ExtResource("3_by0dc")]
+position = Vector2(911, 77)
+
+[node name="Mob5" parent="." instance=ExtResource("3_by0dc")]
+position = Vector2(1406, 145)

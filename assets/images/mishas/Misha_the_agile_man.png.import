@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhb38u2lpvoav"
-path="res://.godot/imported/the_Cat.jpg-58fb20379e17a38b58928930dd96e2b8.ctex"
+uid="uid://0oqghfr7hkoj"
+path="res://.godot/imported/Misha_the_agile_man.png-8d34009cf92015db9e5410dbf5952358.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/the_Cat.jpg"
-dest_files=["res://.godot/imported/the_Cat.jpg-58fb20379e17a38b58928930dd96e2b8.ctex"]
+source_file="res://assets/images/mishas/Misha_the_agile_man.png"
+dest_files=["res://.godot/imported/Misha_the_agile_man.png-8d34009cf92015db9e5410dbf5952358.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boaswryyfmyv5"
-path="res://.godot/imported/the_Cat_alph.png-38e7dd4a48041c394c259b48bb1993e9.ctex"
+uid="uid://clxgiqw1smnqh"
+path="res://.godot/imported/durka_stenii.jpg-56ad43d8f3721c665211c3e39d23bf10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/the_Cat_alph.png"
-dest_files=["res://.godot/imported/the_Cat_alph.png-38e7dd4a48041c394c259b48bb1993e9.ctex"]
+source_file="res://assets/images/backgrounds/durka_stenii.jpg"
+dest_files=["res://.godot/imported/durka_stenii.jpg-56ad43d8f3721c665211c3e39d23bf10.ctex"]
 
 [params]
 

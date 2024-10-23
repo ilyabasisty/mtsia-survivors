@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmu41eabl0smu"
-path="res://.godot/imported/based_stuuuuul.png-65f87c54a1c0d3a815b3f0e98029e65e.ctex"
+uid="uid://dhb38u2lpvoav"
+path="res://.godot/imported/the_Cat.jpg-3f4d2ace0884bbbcb723703a87fb99b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/based_stuuuuul.png"
-dest_files=["res://.godot/imported/based_stuuuuul.png-65f87c54a1c0d3a815b3f0e98029e65e.ctex"]
+source_file="res://assets/images/enemies/the_Cat.jpg"
+dest_files=["res://.godot/imported/the_Cat.jpg-3f4d2ace0884bbbcb723703a87fb99b3.ctex"]
 
 [params]
 

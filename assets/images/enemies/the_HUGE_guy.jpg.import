@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djtybyf7lua3y"
-path="res://.godot/imported/Misha_the_creeper.png-eaee64d1bf3debc8a30d05a87bb09def.ctex"
+uid="uid://dnflpj1pm08wx"
+path="res://.godot/imported/the_HUGE_guy.jpg-833a2528725df47e42c4e7af6c1f35f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Misha_the_creeper.png"
-dest_files=["res://.godot/imported/Misha_the_creeper.png-eaee64d1bf3debc8a30d05a87bb09def.ctex"]
+source_file="res://assets/images/enemies/the_HUGE_guy.jpg"
+dest_files=["res://.godot/imported/the_HUGE_guy.jpg-833a2528725df47e42c4e7af6c1f35f2.ctex"]
 
 [params]
 

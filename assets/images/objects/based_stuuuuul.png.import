@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0w051cka8m0m"
-path="res://.godot/imported/want_pitsa.jpg-adca9ff436619c4e32876627805c4afd.ctex"
+uid="uid://bmu41eabl0smu"
+path="res://.godot/imported/based_stuuuuul.png-ec5b2b297c9d67fe5f28272ee1fb058d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/want_pitsa.jpg"
-dest_files=["res://.godot/imported/want_pitsa.jpg-adca9ff436619c4e32876627805c4afd.ctex"]
+source_file="res://assets/images/objects/based_stuuuuul.png"
+dest_files=["res://.godot/imported/based_stuuuuul.png-ec5b2b297c9d67fe5f28272ee1fb058d.ctex"]
 
 [params]
 

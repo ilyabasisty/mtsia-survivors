@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnflpj1pm08wx"
-path="res://.godot/imported/the_HUGE_guy.jpg-10e323f07c181a94844c5571021c2fc8.ctex"
+uid="uid://0w051cka8m0m"
+path="res://.godot/imported/want_pitsa.jpg-5016f61f0dc6c7564647302d28328b5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/the_HUGE_guy.jpg"
-dest_files=["res://.godot/imported/the_HUGE_guy.jpg-10e323f07c181a94844c5571021c2fc8.ctex"]
+source_file="res://assets/images/backgrounds/want_pitsa.jpg"
+dest_files=["res://.godot/imported/want_pitsa.jpg-5016f61f0dc6c7564647302d28328b5c.ctex"]
 
 [params]
 
