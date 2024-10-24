@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	change_select_character()
+	$AnimationPlayer.play("weapon_move")
 
 func change_select_character():
 	var select = Global.CHARACTERS[Global.select_character_id]

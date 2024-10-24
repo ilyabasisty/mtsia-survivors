@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://rieobadvq3pd"]
+[gd_scene load_steps=5 format=3 uid="uid://rieobadvq3pd"]
 
 [ext_resource type="Script" path="res://src/player/gun.gd" id="1_fhxhv"]
 [ext_resource type="Texture2D" uid="uid://c4amycjas6rno" path="res://assets/images/weapons/frruuuutmotiv.png" id="1_pwggr"]
+[ext_resource type="Texture2D" uid="uid://c5odluae83thr" path="res://assets/images/weapons/weapon_target_area.png" id="3_crbxe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oujt1"]
-radius = 492.001
+radius = 311.194
 
 [node name="Gun" type="Area2D"]
 collision_layer = 0
@@ -17,6 +18,7 @@ shape = SubResource("CircleShape2D_oujt1")
 [node name="WeaponCenter" type="Marker2D" parent="."]
 
 [node name="WeaponImage" type="Sprite2D" parent="WeaponCenter"]
+unique_name_in_owner = true
 position = Vector2(101, -4.76837e-07)
 rotation = 1.5708
 scale = Vector2(0.0905926, 0.0905926)
@@ -24,3 +26,8 @@ texture = ExtResource("1_pwggr")
 
 [node name="WeaponAim" type="Marker2D" parent="WeaponCenter/WeaponImage"]
 position = Vector2(-2.00972e-05, -459.77)
+
+[node name="WeaponTargetArea" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0784314)
+scale = Vector2(1.30598, 1.30598)
+texture = ExtResource("3_crbxe")

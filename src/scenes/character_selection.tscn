@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbpptkabgnvn6"]
+[gd_scene load_steps=20 format=3 uid="uid://bbpptkabgnvn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxgiqw1smnqh" path="res://assets/images/backgrounds/durka_stenii.jpg" id="1_ys0f2"]
 [ext_resource type="AudioStream" uid="uid://cp2th70sohxte" path="res://assets/sounds/sample/wpn_select.mp3" id="2_2cxyj"]
@@ -16,6 +16,51 @@
 font_size = 56
 outline_size = 9
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_cyujb"]
+default_font_size = 25
+
+[sub_resource type="Theme" id="Theme_t3af2"]
+default_font_size = 40
+
+[sub_resource type="Animation" id="Animation_a3hhu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(646.5, 269)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_tchs4"]
 resource_name = "weapon_move"
@@ -40,25 +85,22 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.83, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": []
+"values": [0.0, 0.155737, -0.213131, 0.0, 0.327995, 0.0]
 }
-
-[sub_resource type="Animation" id="Animation_a3hhu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.4, 0.5, 0.62, 0.83, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(646.5, 269)]
+"values": [Vector2(1, 1), Vector2(1.17689, 1.17689), Vector2(0.9598, 0.9598), Vector2(1, 1), Vector2(1.07812, 1.07812), Vector2(1.21253, 1.21253), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6v431"]
@@ -127,6 +169,8 @@ offset_top = -41.5
 offset_right = 303.0
 offset_bottom = 32.5
 grow_vertical = 0
+scale = Vector2(1, 0.974153)
+theme = SubResource("Theme_cyujb")
 text = "всееее назаааад"
 script = ExtResource("2_785f2")
 
@@ -142,6 +186,7 @@ offset_top = -40.5
 offset_bottom = 33.5
 grow_horizontal = 0
 grow_vertical = 0
+theme = SubResource("Theme_t3af2")
 text = "НАЧАТ"
 script = ExtResource("3_2txx6")
 

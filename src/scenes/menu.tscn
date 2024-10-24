@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqrsbns0ng13l"]
+[gd_scene load_steps=8 format=3 uid="uid://dqrsbns0ng13l"]
 
 [ext_resource type="Texture2D" uid="uid://0w051cka8m0m" path="res://assets/images/backgrounds/want_pitsa.jpg" id="1_k2pye"]
 [ext_resource type="Script" path="res://src/scenes/start.gd" id="2_0boly"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://src/scenes/exit.gd" id="3_amoas"]
 [ext_resource type="Script" path="res://src/scenes/settings.gd" id="4_jiyrs"]
 [ext_resource type="Script" path="res://src/scenes/creators.gd" id="5_yinuv"]
+
+[sub_resource type="Theme" id="Theme_4ls33"]
+default_font_size = 36
 
 [node name="Menu" type="Node2D"]
 
@@ -30,13 +33,14 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 55.0
-offset_top = -346.0
-offset_right = 292.0
+offset_left = 62.0
+offset_top = -423.0
+offset_right = 463.0
 grow_vertical = 0
 
 [node name="start" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_4ls33")
 text = "ЗАПУСТЫТ СЕРВЕР"
 script = ExtResource("2_0boly")
 
