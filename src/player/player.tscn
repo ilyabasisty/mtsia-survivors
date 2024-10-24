@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8j467kdcaoxd"]
+[gd_scene load_steps=10 format=3 uid="uid://b8j467kdcaoxd"]
 
 [ext_resource type="Texture2D" uid="uid://0oqghfr7hkoj" path="res://assets/images/mishas/Misha_the_agile_man.png" id="1_0u281"]
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_te1kg"]
 [ext_resource type="Script" path="res://src/player/misha.gd" id="2_ojdpx"]
+[ext_resource type="PackedScene" uid="uid://rieobadvq3pd" path="res://src/player/gun.tscn" id="4_dg67p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nuybo"]
 radius = 52.0096
@@ -124,3 +125,5 @@ texture = ExtResource("1_0u281")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+
+[node name="Gun" parent="." instance=ExtResource("4_dg67p")]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbpptkabgnvn6"]
+[gd_scene load_steps=18 format=3 uid="uid://bbpptkabgnvn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxgiqw1smnqh" path="res://assets/images/backgrounds/durka_stenii.jpg" id="1_ys0f2"]
 [ext_resource type="AudioStream" uid="uid://cp2th70sohxte" path="res://assets/sounds/sample/wpn_select.mp3" id="2_2cxyj"]
 [ext_resource type="Script" path="res://src/scenes/back.gd" id="2_785f2"]
 [ext_resource type="Script" path="res://src/scenes/start_pls.gd" id="3_2txx6"]
 [ext_resource type="Script" path="res://src/scenes/selection_card.gd" id="4_4hw8p"]
-[ext_resource type="Texture2D" uid="uid://djtybyf7lua3y" path="res://assets/images/mishas/Misha_the_creeper.png" id="4_y5d1l"]
+[ext_resource type="Texture2D" uid="uid://0oqghfr7hkoj" path="res://assets/images/mishas/Misha_the_agile_man.png" id="6_8jn8j"]
 [ext_resource type="Texture2D" uid="uid://b6jx7264mwfhd" path="res://assets/images/icons/arrow-left.svg" id="6_k0tac"]
+[ext_resource type="Texture2D" uid="uid://c4amycjas6rno" path="res://assets/images/weapons/frruuuutmotiv.png" id="7_14jiu"]
 [ext_resource type="Texture2D" uid="uid://q4lsaoy8j0dt" path="res://assets/images/icons/arrow-right.svg" id="7_tj0sv"]
 [ext_resource type="Script" path="res://src/scenes/slide_back.gd" id="8_a5r5b"]
 [ext_resource type="Script" path="res://src/scenes/slide_front.gd" id="10_phpsy"]
@@ -15,6 +16,56 @@
 font_size = 56
 outline_size = 9
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_tchs4"]
+resource_name = "weapon_move"
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.14, 0.4, 0.5, 0.63, 0.83, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(646.5, 269), Vector2(633.5, 255), Vector2(655.5, 239), Vector2(646.5, 269), Vector2(638.5, 303), Vector2(613.5, 257), Vector2(646.5, 269)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_a3hhu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(646.5, 269)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6v431"]
+_data = {
+"RESET": SubResource("Animation_a3hhu"),
+"weapon_move": SubResource("Animation_tchs4")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_hipvr"]
 font_size = 36
@@ -109,20 +160,36 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_4hw8p")
 
-[node name="TextureRect" type="TextureRect" parent="Control/Border/Selection_card"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Border/Selection_card"]
+root_node = NodePath("../weapon_texture")
+libraries = {
+"": SubResource("AnimationLibrary_6v431")
+}
+
+[node name="mishail_texture" type="TextureRect" parent="Control/Border/Selection_card"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -237.5
-offset_top = -313.0
-offset_right = 237.5
-offset_bottom = 214.0
+offset_left = -332.5
+offset_top = -309.0
+offset_right = 97.5
+offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_y5d1l")
+texture = ExtResource("6_8jn8j")
+expand_mode = 2
+
+[node name="weapon_texture" type="TextureRect" parent="Control/Border/Selection_card"]
+layout_mode = 0
+offset_left = 646.5
+offset_top = 269.0
+offset_right = 846.5
+offset_bottom = 469.0
+texture = ExtResource("7_14jiu")
+expand_mode = 2
 
 [node name="slide_back" type="Button" parent="Control/Border/Selection_card"]
 layout_mode = 1
@@ -154,14 +221,53 @@ scale = Vector2(0.1, 0.1)
 icon = ExtResource("7_tj0sv")
 script = ExtResource("10_phpsy")
 
+[node name="ColorRectWeapon" type="ColorRect" parent="Control/Border/Selection_card"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 647.0
+offset_top = -132.0
+offset_right = -5.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.372549)
+
+[node name="title_label" type="Label" parent="Control/Border/Selection_card/ColorRectWeapon"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_hipvr")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="subtitle_label" type="Label" parent="Control/Border/Selection_card/ColorRectWeapon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -117.0
+offset_right = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_7rw47")
+autowrap_mode = 3
+
 [node name="ColorRect" type="ColorRect" parent="Control/Border/Selection_card"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -106.0
-offset_bottom = 73.0
+offset_top = -132.0
+offset_right = -347.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.372549)

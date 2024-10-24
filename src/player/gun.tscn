@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://rieobadvq3pd"]
+
+[ext_resource type="Script" path="res://src/player/gun.gd" id="1_fhxhv"]
+[ext_resource type="Texture2D" uid="uid://c4amycjas6rno" path="res://assets/images/weapons/frruuuutmotiv.png" id="1_pwggr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oujt1"]
+radius = 492.001
+
+[node name="Gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fhxhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oujt1")
+
+[node name="WeaponCenter" type="Marker2D" parent="."]
+
+[node name="WeaponImage" type="Sprite2D" parent="WeaponCenter"]
+position = Vector2(101, -4.76837e-07)
+rotation = 1.5708
+scale = Vector2(0.0905926, 0.0905926)
+texture = ExtResource("1_pwggr")
+
+[node name="WeaponAim" type="Marker2D" parent="WeaponCenter/WeaponImage"]
+position = Vector2(-2.00972e-05, -459.77)
