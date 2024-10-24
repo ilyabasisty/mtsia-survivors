@@ -25,9 +25,16 @@ scale = Vector2(0.0905926, 0.0905926)
 texture = ExtResource("1_pwggr")
 
 [node name="WeaponAim" type="Marker2D" parent="WeaponCenter/WeaponImage"]
+unique_name_in_owner = true
 position = Vector2(-2.00972e-05, -459.77)
 
 [node name="WeaponTargetArea" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.0784314)
+modulate = Color(1, 1, 1, 0.0431373)
 scale = Vector2(1.30598, 1.30598)
 texture = ExtResource("3_crbxe")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
