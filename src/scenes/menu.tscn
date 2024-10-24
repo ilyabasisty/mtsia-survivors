@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqrsbns0ng13l"]
+[gd_scene load_steps=7 format=3 uid="uid://dqrsbns0ng13l"]
 
 [ext_resource type="Texture2D" uid="uid://0w051cka8m0m" path="res://assets/images/backgrounds/want_pitsa.jpg" id="1_k2pye"]
 [ext_resource type="Script" path="res://src/scenes/start.gd" id="2_0boly"]
+[ext_resource type="AudioStream" uid="uid://cp2th70sohxte" path="res://assets/sounds/sample/wpn_select.mp3" id="2_e5t6d"]
 [ext_resource type="Script" path="res://src/scenes/exit.gd" id="3_amoas"]
+[ext_resource type="Script" path="res://src/scenes/settings.gd" id="4_jiyrs"]
+[ext_resource type="Script" path="res://src/scenes/creators.gd" id="5_yinuv"]
 
 [node name="Menu" type="Node2D"]
 
@@ -17,6 +20,11 @@ anchors_preset = 0
 offset_right = 1600.0
 offset_bottom = 900.0
 
+[node name="AudioButton" type="AudioStreamPlayer" parent="Control"]
+unique_name_in_owner = true
+stream = ExtResource("2_e5t6d")
+volume_db = -15.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 2
@@ -29,21 +37,33 @@ grow_vertical = 0
 
 [node name="start" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "НАЧАТ"
+text = "ЗАПУСТЫТ СЕРВЕР"
 script = ExtResource("2_0boly")
 
 [node name="settings" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "настройка"
+script = ExtResource("4_jiyrs")
 
 [node name="creators" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "создатели сего"
+text = "раразрабрабработчикики"
+script = ExtResource("5_yinuv")
 
 [node name="exit" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "выйти из этого кринжа"
+text = "выйти отсюда"
 script = ExtResource("3_amoas")
 
+[node name="AudioMain" type="AudioStreamPlayer" parent="."]
+
+[connection signal="button_down" from="Control/VBoxContainer/start" to="Control/VBoxContainer/start" method="_on_button_down"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/start" to="Control/VBoxContainer/start" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/start" to="Control/VBoxContainer/start" method="_on_pressed"]
+[connection signal="button_down" from="Control/VBoxContainer/settings" to="Control/VBoxContainer/settings" method="_on_button_down"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/settings" to="Control/VBoxContainer/settings" method="_on_mouse_entered"]
+[connection signal="button_down" from="Control/VBoxContainer/creators" to="Control/VBoxContainer/creators" method="_on_button_down"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/creators" to="Control/VBoxContainer/creators" method="_on_mouse_entered"]
+[connection signal="button_down" from="Control/VBoxContainer/exit" to="Control/VBoxContainer/exit" method="_on_button_down"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/exit" to="Control/VBoxContainer/exit" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/exit" to="Control/VBoxContainer/exit" method="_on_pressed"]

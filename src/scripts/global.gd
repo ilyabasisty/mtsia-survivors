@@ -1,13 +1,16 @@
+extends Node
 
 const CHARACTERS = [
 	{
-		"name": "Михаил обыкновенный",
+		"title": "Михаил обыкновенный",
+		"subtitle": "Завсегдатай своих стримов, гигачад и просто хороший парень, познавший глубины танкового мастерства",
 		"path": "res://assets/images/mishas/Misha_the_agile_man.png"
 	},
 	{
-		"name": "Крипхаил",
+		"title": "Крипхаил",
+		"subtitle": "Тёмная личность Михаила, запечатленная единожды на стриме МАСИГИС МОСТАРС 747 (5:19). Особо опасен",
 		"path": "res://assets/images/mishas/Misha_the_creeper.png"
 	}
 ]
 
-var SELECT_CHARACTER_ID: int = 0
+var select_character_id = 0

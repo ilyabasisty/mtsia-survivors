@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgbx7vwbb1jvd"]
+[gd_scene load_steps=6 format=3 uid="uid://dgbx7vwbb1jvd"]
 
 [ext_resource type="Script" path="res://src/scenes/game.gd" id="1_bcwr1"]
 [ext_resource type="PackedScene" uid="uid://b8j467kdcaoxd" path="res://src/player/player.tscn" id="1_gelbp"]
 [ext_resource type="PackedScene" uid="uid://bf4qlre0l1r2v" path="res://src/objects/stul.tscn" id="2_pha0n"]
+[ext_resource type="AudioStream" uid="uid://bk7y5c787baax" path="res://assets/sounds/music/mtsia_theme.mp3" id="2_ybetl"]
 [ext_resource type="PackedScene" uid="uid://ca8candb78ftu" path="res://src/enemies/mob.tscn" id="3_by0dc"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_bcwr1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ybetl")
+volume_db = -25.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10

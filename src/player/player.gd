@@ -3,8 +3,10 @@ extends CharacterBody2D
 const PLAYER_SPEED = 400
 
 func _ready() -> void:
-	var mishail_texture = load(Global.CHARACTERS[Global.SELECT_CHARACTER_ID].path)
+	var mishail_texture = load(Global.CHARACTERS[Global.select_character_id].path)
 	$Misha/MishaTheAgileMan.texture = mishail_texture
+	
+	%AudioStreamPlayer.stream = PreLoader.grass_footsteps
 
 
 func _physics_process(delta: float) -> void:
@@ -20,5 +22,8 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > 0.0:
 		%Misha.play_walk_animation()
+		if not %AudioStreamPlayer.playing:
+			%AudioStreamPlayer.play()
 	else:
 		%Misha.play_idle_animation()
+		%AudioStreamPlayer.stop()

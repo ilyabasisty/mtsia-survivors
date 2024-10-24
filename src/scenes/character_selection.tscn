@@ -1,10 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbpptkabgnvn6"]
+[gd_scene load_steps=14 format=3 uid="uid://bbpptkabgnvn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxgiqw1smnqh" path="res://assets/images/backgrounds/durka_stenii.jpg" id="1_ys0f2"]
+[ext_resource type="AudioStream" uid="uid://cp2th70sohxte" path="res://assets/sounds/sample/wpn_select.mp3" id="2_2cxyj"]
 [ext_resource type="Script" path="res://src/scenes/back.gd" id="2_785f2"]
 [ext_resource type="Script" path="res://src/scenes/start_pls.gd" id="3_2txx6"]
 [ext_resource type="Script" path="res://src/scenes/selection_card.gd" id="4_4hw8p"]
 [ext_resource type="Texture2D" uid="uid://djtybyf7lua3y" path="res://assets/images/mishas/Misha_the_creeper.png" id="4_y5d1l"]
+[ext_resource type="Texture2D" uid="uid://b6jx7264mwfhd" path="res://assets/images/icons/arrow-left.svg" id="6_k0tac"]
+[ext_resource type="Texture2D" uid="uid://q4lsaoy8j0dt" path="res://assets/images/icons/arrow-right.svg" id="7_tj0sv"]
+[ext_resource type="Script" path="res://src/scenes/slide_back.gd" id="8_a5r5b"]
+[ext_resource type="Script" path="res://src/scenes/slide_front.gd" id="10_phpsy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_87xft"]
+font_size = 56
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hipvr"]
+font_size = 36
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rw47"]
+font_size = 24
 
 [node name="CharacterSelection" type="Node2D"]
 
@@ -18,6 +36,11 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
 offset_bottom = 900.0
+
+[node name="AudioButton" type="AudioStreamPlayer" parent="Control"]
+unique_name_in_owner = true
+stream = ExtResource("2_2cxyj")
+volume_db = -15.0
 
 [node name="Border" type="Control" parent="Control"]
 layout_mode = 1
@@ -33,13 +56,25 @@ offset_bottom = 397.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Control/Border"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -51.5
+offset_bottom = 25.5
+grow_horizontal = 2
+text = "Какой Михаил ты сегодня ?"
+label_settings = SubResource("LabelSettings_87xft")
+horizontal_alignment = 1
+
 [node name="back" type="Button" parent="Control/Border"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -74.0
+offset_top = -41.5
 offset_right = 303.0
+offset_bottom = 32.5
 grow_vertical = 0
 text = "всееее назаааад"
 script = ExtResource("2_785f2")
@@ -52,11 +87,11 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -303.0
-offset_top = -73.0
-offset_bottom = 1.0
+offset_top = -40.5
+offset_bottom = 33.5
 grow_horizontal = 0
 grow_vertical = 0
-text = "НАЧАТТТ !!!"
+text = "НАЧАТ"
 script = ExtResource("3_2txx6")
 
 [node name="Selection_card" type="Control" parent="Control/Border"]
@@ -94,11 +129,13 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -33.0
-offset_right = 71.0
-offset_bottom = 33.0
+offset_top = -52.0
+offset_right = 1032.0
+offset_bottom = 980.0
 grow_vertical = 2
-text = "<"
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("6_k0tac")
+script = ExtResource("8_a5r5b")
 
 [node name="slide_front" type="Button" parent="Control/Border/Selection_card"]
 layout_mode = 1
@@ -107,24 +144,59 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -71.0
-offset_top = -33.0
-offset_bottom = 33.0
+offset_left = -111.5
+offset_top = -52.0
+offset_right = 920.5
+offset_bottom = 980.0
 grow_horizontal = 0
 grow_vertical = 2
-text = ">"
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("7_tj0sv")
+script = ExtResource("10_phpsy")
 
-[node name="TextEdit" type="TextEdit" parent="Control/Border/Selection_card"]
+[node name="ColorRect" type="ColorRect" parent="Control/Border/Selection_card"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -94.0
+offset_top = -106.0
+offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 0
+color = Color(0, 0, 0, 0.372549)
 
+[node name="title_label" type="Label" parent="Control/Border/Selection_card/ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_hipvr")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="subtitle_label" type="Label" parent="Control/Border/Selection_card/ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -117.0
+offset_right = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_7rw47")
+autowrap_mode = 3
+
+[connection signal="button_down" from="Control/Border/back" to="Control/Border/back" method="_on_button_down"]
+[connection signal="mouse_entered" from="Control/Border/back" to="Control/Border/back" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/Border/back" to="Control/Border/back" method="_on_pressed"]
+[connection signal="button_down" from="Control/Border/start_pls" to="Control/Border/start_pls" method="_on_button_down"]
+[connection signal="mouse_entered" from="Control/Border/start_pls" to="Control/Border/start_pls" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/Border/start_pls" to="Control/Border/start_pls" method="_on_pressed"]
+[connection signal="mouse_entered" from="Control/Border/Selection_card/slide_back" to="Control/Border/Selection_card/slide_back" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/Border/Selection_card/slide_back" to="Control/Border/Selection_card" method="_on_slide_back_pressed"]
+[connection signal="mouse_entered" from="Control/Border/Selection_card/slide_front" to="Control/Border/Selection_card/slide_front" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/Border/Selection_card/slide_front" to="Control/Border/Selection_card" method="_on_slide_front_pressed"]
