@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 const PLAYER_SPEED = 400
+var select_character
+
 
 func _ready() -> void:
-	var mishail_texture = load(Global.CHARACTERS[Global.select_character_id].path)
-	$Misha/MishaTheAgileMan.texture = mishail_texture
+	
+	select_character = Characters.CHARACTERS[Global.select_character_id]
+	$Misha/MishaTheAgileMan.texture = select_character.image
 	
 	%AudioStreamPlayer.stream = PreLoader.grass_footsteps
 

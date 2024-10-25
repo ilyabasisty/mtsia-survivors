@@ -1,10 +1,11 @@
 extends Area2D
 
-const BULLET = preload("res://src/player/bullet.tscn")
+var select_weapon
+
 
 func _ready() -> void:
-	var weapon_texture = load(Global.CHARACTERS[Global.select_character_id].weapon)
-	%WeaponImage.texture = weapon_texture
+	select_weapon = Weapons.WEAPONS[Global.select_character_id]
+	%WeaponImage.texture = select_weapon.image
 
 
 func _physics_process(delta: float) -> void:
@@ -15,10 +16,12 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot():
-	var new_bullet = BULLET.instantiate()
+	var new_bullet = select_weapon.bullet.instantiate()
 	new_bullet.global_position = %WeaponAim.global_position
 	new_bullet.global_rotation = %WeaponAim.global_rotation
 	%WeaponAim.add_child(new_bullet)
+	$AudioStreamPlayer.stream = select_weapon.sound
+	$AudioStreamPlayer.play()
 
 
 func _on_timer_timeout() -> void:

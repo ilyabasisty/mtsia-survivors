@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqrsbns0ng13l"]
+[gd_scene load_steps=9 format=3 uid="uid://dqrsbns0ng13l"]
 
 [ext_resource type="Texture2D" uid="uid://0w051cka8m0m" path="res://assets/images/backgrounds/want_pitsa.jpg" id="1_k2pye"]
 [ext_resource type="Script" path="res://src/scenes/start.gd" id="2_0boly"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/scenes/exit.gd" id="3_amoas"]
 [ext_resource type="Script" path="res://src/scenes/settings.gd" id="4_jiyrs"]
 [ext_resource type="Script" path="res://src/scenes/creators.gd" id="5_yinuv"]
+[ext_resource type="AudioStream" uid="uid://1gthjoo5kkdb" path="res://assets/sounds/music/gnome-tiktok-song.mp3" id="7_j0w83"]
 
 [sub_resource type="Theme" id="Theme_4ls33"]
 default_font_size = 36
@@ -60,6 +61,10 @@ text = "выйти отсюда"
 script = ExtResource("3_amoas")
 
 [node name="AudioMain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_j0w83")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="button_down" from="Control/VBoxContainer/start" to="Control/VBoxContainer/start" method="_on_button_down"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/start" to="Control/VBoxContainer/start" method="_on_mouse_entered"]
