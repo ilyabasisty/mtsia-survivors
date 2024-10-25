@@ -12,5 +12,11 @@ var CHARACTERS = [
 		"sound": load("res://assets/sounds/characters/among.mp3"),
 		"title": "Крипхаил",
 		"subtitle": "Тёмная личность Михаила, замеченная единожды на стриме МАСИГИС МОСТАРС 747 (5:19). Особо опасен",
+	},
+		{
+		"image": load("res://assets/images/mishas/Spisha.jpg"),
+		"sound": load("res://assets/sounds/characters/shutup.swf.mp3"),
+		"title": "Сон Ха Ил",
+		"subtitle": "Бытовая разновидность Михаила, которая, тем не менее, редко появляется на стримах. Единственное чего ищет Сон Ха Ил - это покоя и умиротворения",
 	}
 ]
