@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const MOB_SPEED = 200
-var max_health = 3
+var max_health = 30
 var health = max_health
 
 @onready var player = get_node("/root/Game/Player")
@@ -20,8 +20,8 @@ func _physics_process(delta: float) -> void:
 		$Mob/TheCat.flip_h = true
 
 
-func take_damage():
-	health -= 1
+func take_damage(damage: int):
+	health -= damage
 	%Mob.play_hit_animation()
 	
 	if health <= 0:

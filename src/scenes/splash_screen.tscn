@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8wwbqswmfy8p"]
+
+[ext_resource type="Script" path="res://src/scenes/splash_screen.gd" id="1_4sekr"]
+[ext_resource type="Texture2D" uid="uid://djtybyf7lua3y" path="res://assets/images/mishas/Misha_the_creeper.png" id="1_puhho"]
+[ext_resource type="AudioStream" uid="uid://br107whigp8mb" path="res://assets/sounds/music/black_guy.mp3" id="2_poek1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ry8m4"]
+font_size = 30
+font_color = Color(1, 1, 1, 0.235294)
+
+[sub_resource type="Animation" id="Animation_p7x8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_crihu"]
+resource_name = "new_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x51dy"]
+_data = {
+"RESET": SubResource("Animation_p7x8m"),
+"new_animation": SubResource("Animation_crihu")
+}
+
+[node name="splash_screen" type="Node2D"]
+script = ExtResource("1_4sekr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -408.0
+offset_top = -98.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Происходит загрузка"
+label_settings = SubResource("LabelSettings_ry8m4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../MishaTheCreeper")
+libraries = {
+"": SubResource("AnimationLibrary_x51dy")
+}
+
+[node name="MishaTheCreeper" type="Sprite2D" parent="."]
+position = Vector2(805, 447.942)
+scale = Vector2(1.0292, 1.0292)
+texture = ExtResource("1_puhho")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_poek1")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.7
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

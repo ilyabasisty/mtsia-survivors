@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8j467kdcaoxd"]
+[gd_scene load_steps=11 format=3 uid="uid://b8j467kdcaoxd"]
 
 [ext_resource type="Texture2D" uid="uid://0oqghfr7hkoj" path="res://assets/images/mishas/Misha_the_agile_man.png" id="1_0u281"]
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_te1kg"]
@@ -100,6 +100,9 @@ _data = {
 "walk": SubResource("Animation_q67fm")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0q7cs"]
+radius = 64.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_te1kg")
 
@@ -121,9 +124,26 @@ position = Vector2(0, -3.57628e-07)
 scale = Vector2(0.358333, 0.358333)
 texture = ExtResource("1_0u281")
 
+[node name="TextureRect" type="TextureRect" parent="Misha"]
+offset_left = -54.0
+offset_top = -63.0
+offset_right = 105.0
+offset_bottom = 122.0
+scale = Vector2(0.701912, 0.701912)
+expand_mode = 1
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 
 [node name="Gun" parent="." instance=ExtResource("4_dg67p")]
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_0q7cs")
+debug_color = Color(0.968089, 0.0774584, 0.410407, 0.42)

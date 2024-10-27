@@ -229,7 +229,7 @@ offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_8jn8j")
-expand_mode = 2
+expand_mode = 1
 
 [node name="weapon_texture" type="TextureRect" parent="Control/Border/Selection_card"]
 layout_mode = 0
@@ -238,7 +238,7 @@ offset_top = 269.0
 offset_right = 846.5
 offset_bottom = 469.0
 texture = ExtResource("7_14jiu")
-expand_mode = 2
+expand_mode = 1
 
 [node name="slide_back" type="Button" parent="Control/Border/Selection_card"]
 layout_mode = 1
