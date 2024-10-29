@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+signal health_deplated
+
 const PLAYER_SPEED = 400
+const DAMAGE_RATE = 10.0
 var select_character
 @export var max_health = 100.0
 var health = max_health
@@ -20,6 +23,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	if overlapping_mobs.size() > 0:
+		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		%ProgressBar.value = health
+		if health <= 0.0:
+			health_deplated.emit()
 	
 	if direction[0] < 0:
 		%Misha/TextureRect.flip_h = true

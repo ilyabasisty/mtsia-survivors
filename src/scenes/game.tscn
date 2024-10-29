@@ -5,7 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b8nlt6kod8mnh" path="res://src/scenes/hud.tscn" id="2_k18lv"]
 [ext_resource type="PackedScene" uid="uid://bf4qlre0l1r2v" path="res://src/objects/stul.tscn" id="2_pha0n"]
 [ext_resource type="AudioStream" uid="uid://bk7y5c787baax" path="res://assets/sounds/music/mtsia_theme.mp3" id="2_ybetl"]
-[ext_resource type="PackedScene" uid="uid://ca8candb78ftu" path="res://src/enemies/mob.tscn" id="3_by0dc"]
+
+[sub_resource type="Curve2D" id="Curve2D_2wv1f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -82, -97, 0, 0, 0, 0, 1721, -109, 0, 0, 0, 0, 1728, 1047, 0, 0, 0, 0, -85, 1018, 0, 0, 0, 0, -82, -97)
+}
+point_count = 5
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -26,6 +31,15 @@ color = Color(0.304267, 0.468149, 0.30296, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_gelbp")]
 position = Vector2(814, 473)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-814, -473)
+curve = SubResource("Curve2D_2wv1f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-82, -97)
+rotation = -0.00665548
 
 [node name="HUD" parent="Player" instance=ExtResource("2_k18lv")]
 position = Vector2(-798, -450)
@@ -50,8 +64,7 @@ position = Vector2(1351, 308)
 [node name="stul6" parent="stulia" instance=ExtResource("2_pha0n")]
 position = Vector2(369, 794)
 
-[node name="Mob" parent="." instance=ExtResource("3_by0dc")]
-position = Vector2(439, 192)
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
 
-[node name="Mob2" parent="." instance=ExtResource("3_by0dc")]
-position = Vector2(649, 130)
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8j467kdcaoxd"]
+[gd_scene load_steps=12 format=3 uid="uid://b8j467kdcaoxd"]
 
 [ext_resource type="Texture2D" uid="uid://0oqghfr7hkoj" path="res://assets/images/mishas/Misha_the_agile_man.png" id="1_0u281"]
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_te1kg"]
@@ -103,6 +103,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_0q7cs"]
 radius = 64.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an45s"]
+bg_color = Color(0.682605, 0, 0.108086, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_te1kg")
 
@@ -147,3 +154,13 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_0q7cs")
 debug_color = Color(0.968089, 0.0774584, 0.410407, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -69.0
+offset_top = 67.0
+offset_right = 70.0
+offset_bottom = 77.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_an45s")
+value = 100.0
+show_percentage = false
