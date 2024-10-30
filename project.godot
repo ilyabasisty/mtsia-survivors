@@ -21,6 +21,7 @@ Global="*res://src/scripts/global.gd"
 PreLoader="*res://src/scripts/pre_loader.gd"
 Characters="*res://src/datass/characters.gd"
 Weapons="*res://src/datass/weapons.gd"
+Enemies="*res://src/datass/enemies.gd"
 
 [display]
 

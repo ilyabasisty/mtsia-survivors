@@ -50,6 +50,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.937189, 0.545596, 0.567352, 1), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.937189, 0.545596, 0.567352, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_2adgq"]
 resource_name = "walk"
@@ -62,6 +74,18 @@ tracks/0/path = NodePath("TheCat:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25641, 0.25641), Vector2(0.25641, 0.217949), Vector2(0.25641, 0.25641)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -89,6 +113,7 @@ unique_name_in_owner = true
 script = ExtResource("1_1ud24")
 
 [node name="TheCat" type="Sprite2D" parent="Mob"]
+visible = false
 scale = Vector2(0.25641, 0.25641)
 texture = ExtResource("3_g7fti")
 
@@ -96,3 +121,11 @@ texture = ExtResource("3_g7fti")
 libraries = {
 "": SubResource("AnimationLibrary_k2eyq")
 }
+
+[node name="TextureRect" type="TextureRect" parent="Mob"]
+offset_left = -43.0
+offset_top = -36.0
+offset_right = 312.0
+offset_bottom = 260.0
+scale = Vector2(0.25641, 0.25641)
+expand_mode = 1

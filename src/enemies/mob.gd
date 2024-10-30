@@ -7,7 +7,12 @@ var health = max_health
 @onready var player = get_node("/root/Game/Player")
 
 func _ready() -> void:
+	Global.swarm_changed.connect(setup_mob)
+	setup_mob()
 	%Mob.play_walk_animation()
+
+func setup_mob():
+	$Mob/TextureRect.texture = Enemies.ENEMIES[Global.select_enemy_id].image
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
@@ -25,4 +30,5 @@ func take_damage(damage: int):
 	%Mob.play_hit_animation()
 	
 	if health <= 0:
+		Global.dead_count_in_current_swarm += 1
 		queue_free()
