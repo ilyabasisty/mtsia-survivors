@@ -50,5 +50,6 @@ func _on_player_health_deplated() -> void:
 
 
 func _on_button_button_down() -> void:
+	Global.select_enemy_id = -1
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://src/scenes/menu.tscn")
