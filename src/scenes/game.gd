@@ -19,6 +19,7 @@ func setup_spawned_mob():
 		Global.spawn_count_in_current_swarm = 0
 		current_enemy = Enemies.ENEMIES[Global.select_enemy_id]
 		Global.max_swarm_count = current_enemy.max_in_swarm
+		$SpawnTimer.wait_time = current_enemy.spawn_rate
 		Global.swarm_changed.emit()
 	else:
 		$GameOver/ColorRect/Label.text = "Молодец"
@@ -36,6 +37,7 @@ func spawn_mob():
 
 func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
+		Global.select_enemy_id = -1
 		get_tree().change_scene_to_file("res://src/scenes/menu.tscn")
 
 

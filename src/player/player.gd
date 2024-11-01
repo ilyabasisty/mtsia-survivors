@@ -3,17 +3,25 @@ extends CharacterBody2D
 signal health_deplated
 
 const PLAYER_SPEED = 400
-const DAMAGE_RATE = 10.0
+var damage_rate = 10.0
 var select_character
+var current_enemy
 @export var max_health = 100.0
 var health = max_health
 
 func _ready() -> void:
+	Global.swarm_changed.connect(setup_mob)
 	
 	select_character = Characters.CHARACTERS[Global.select_character_id]
 	$Misha/TextureRect.texture = select_character.image
 	
 	%AudioStreamPlayer.stream = PreLoader.grass_footsteps
+
+func setup_mob():
+	current_enemy = Enemies.ENEMIES[Global.select_enemy_id]
+	damage_rate = current_enemy.damage
+	
+	health += 10.0
 
 
 func _physics_process(delta: float) -> void:
@@ -24,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		health -= damage_rate * overlapping_mobs.size() * delta
 		%ProgressBar.value = health
 		if health <= 0.0:
 			health_deplated.emit()

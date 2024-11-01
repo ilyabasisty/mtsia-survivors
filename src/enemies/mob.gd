@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 const MOB_SPEED = 200
-var max_health = 30
-var health = max_health
+var health = 30
+
+var current_enemy
 
 @onready var player = get_node("/root/Game/Player")
 
@@ -12,7 +13,9 @@ func _ready() -> void:
 	%Mob.play_walk_animation()
 
 func setup_mob():
-	$Mob/TextureRect.texture = Enemies.ENEMIES[Global.select_enemy_id].image
+	current_enemy = Enemies.ENEMIES[Global.select_enemy_id]
+	health = current_enemy.health
+	$Mob/TextureRect.texture = current_enemy.image
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
@@ -20,9 +23,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if direction[0] < 0:
-		$Mob/TheCat.flip_h = false
+		$Mob/TextureRect.flip_h = false
 	elif direction[0] > 0:
-		$Mob/TheCat.flip_h = true
+		$Mob/TextureRect.flip_h = true
 
 
 func take_damage(damage: int):
