@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbpptkabgnvn6"]
+[gd_scene load_steps=23 format=3 uid="uid://bbpptkabgnvn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxgiqw1smnqh" path="res://assets/images/backgrounds/durka_stenii.jpg" id="1_ys0f2"]
 [ext_resource type="AudioStream" uid="uid://cp2th70sohxte" path="res://assets/sounds/sample/wpn_select.mp3" id="2_2cxyj"]
@@ -117,6 +117,44 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_7rw47"]
 font_size = 24
 
+[sub_resource type="Animation" id="Animation_1c0pd"]
+resource_name = "mikhail_scale"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mishail_texture:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.885), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ddcl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mishail_texture:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fh1yj"]
+_data = {
+"RESET": SubResource("Animation_5ddcl"),
+"mikhail_scale": SubResource("Animation_1c0pd")
+}
+
 [node name="CharacterSelection" type="Node2D"]
 
 [node name="DurkaStenii" type="Sprite2D" parent="."]
@@ -228,6 +266,7 @@ offset_right = 97.5
 offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(215.5, 488)
 texture = ExtResource("6_8jn8j")
 expand_mode = 1
 
@@ -344,6 +383,11 @@ grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_7rw47")
 autowrap_mode = 3
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Control/Border/Selection_card"]
+libraries = {
+"": SubResource("AnimationLibrary_fh1yj")
+}
 
 [connection signal="button_down" from="Control/Border/back" to="Control/Border/back" method="_on_button_down"]
 [connection signal="mouse_entered" from="Control/Border/back" to="Control/Border/back" method="_on_mouse_entered"]

@@ -6,6 +6,7 @@ var select_weapon
 func _ready() -> void:
 	select_weapon = Weapons.WEAPONS[Global.select_character_id]
 	%WeaponImage.texture = select_weapon.image
+	$Timer.wait_time = select_weapon.timer_wait_time
 
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8nlt6kod8mnh"]
+[gd_scene load_steps=7 format=3 uid="uid://b8nlt6kod8mnh"]
 
 [ext_resource type="Script" path="res://src/scenes/hud.gd" id="1_81jtt"]
 
@@ -16,10 +16,15 @@ bg_color = Color(0.158805, 0.459681, 0.690096, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_1h3sj"]
 font_size = 24
 
+[sub_resource type="LabelSettings" id="LabelSettings_iuijc"]
+font_size = 50
+font_color = Color(1, 1, 0, 1)
+
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_81jtt")
 
 [node name="Control" type="Control" parent="."]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
@@ -69,6 +74,33 @@ max_value = 10.0
 step = 1.0
 show_percentage = false
 
+[node name="stage_info" type="HBoxContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 202.0
+offset_bottom = 80.0
+alignment = 1
+
+[node name="name" type="Label" parent="Control/stage_info"]
+layout_mode = 2
+text = "Этап"
+label_settings = SubResource("LabelSettings_1h3sj")
+
+[node name="current" type="Label" parent="Control/stage_info"]
+layout_mode = 2
+text = "2"
+label_settings = SubResource("LabelSettings_1h3sj")
+
+[node name="Label3" type="Label" parent="Control/stage_info"]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_1h3sj")
+
+[node name="max" type="Label" parent="Control/stage_info"]
+layout_mode = 2
+text = "10"
+label_settings = SubResource("LabelSettings_1h3sj")
+
 [node name="spawn_info" type="HBoxContainer" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -100,3 +132,29 @@ label_settings = SubResource("LabelSettings_1h3sj")
 layout_mode = 2
 text = "10"
 label_settings = SubResource("LabelSettings_1h3sj")
+
+[node name="text_message" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -535.0
+offset_top = -316.0
+offset_right = 535.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0, 0.166667)
+text = "lodofaodsofo fdsofodsfod ofdsofdsof dosfods"
+label_settings = SubResource("LabelSettings_iuijc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

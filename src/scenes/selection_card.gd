@@ -6,6 +6,7 @@ var select_weapon
 func _ready() -> void:
 	change_select_character()
 	$AnimationPlayer.play("weapon_move")
+	$AnimationPlayer2.play("mikhail_scale")
 
 func change_select_character():
 	select_character = Characters.CHARACTERS[Global.select_character_id]

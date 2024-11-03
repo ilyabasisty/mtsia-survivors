@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://coulannbilbmi"]
+
+[ext_resource type="Texture2D" uid="uid://xgjg1qh0vaqy" path="res://assets/images/weapons/projectiles/mooooshh.png" id="1_8wglh"]
+[ext_resource type="Script" path="res://src/player/projectiles/mooosh_bullet.gd" id="1_q660f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi55x"]
+size = Vector2(46, 52)
+
+[sub_resource type="Animation" id="Animation_27s4o"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(60, 0), Vector2(0, 0), Vector2(-60, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.785398, 0.0, -0.785398, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lu1pw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksio4"]
+_data = {
+"RESET": SubResource("Animation_lu1pw"),
+"new_animation": SubResource("Animation_27s4o")
+}
+
+[node name="mooosh_bullet" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_q660f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bi55x")
+
+[node name="Mooooshh" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-1.90735e-06, 9.53674e-07)
+scale = Vector2(0.105034, 0.105034)
+texture = ExtResource("1_8wglh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ksio4")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

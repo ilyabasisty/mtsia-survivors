@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdgdwmi1adxgd"]
+
+[ext_resource type="Script" path="res://src/scenes/about_ga_yme.gd" id="1_u2rou"]
+
+[node name="About_GAYme" type="Node2D"]
+script = ExtResource("1_u2rou")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -390.0
+offset_right = 278.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.105882)
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -350.5
+offset_right = 232.5
+offset_bottom = 350.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Об игре:
+
+Вобщем была идея сделать какую-то кринж игру про Михаила в стиле ныне популярных сурвов. Собственно сел и сделал. Получилось не очень, но я доволен (нет).
+
+Быть может однажды свет увидит вторая часть, где я не буду особо торопиться и сделаю максимально чиллово.
+
+
+О создателе:
+
+Автор, соавтор, сценарист, сюжетописец, редактор уровней, генератор музыки, постановщик эротических сцен, повар, горе-программист, самозанятый натурал, писец, пиздец, графический дизайнер, кринжемайнер, единственный зритель Живого Анарихиста, социофоб, гачигигачад, художник-нудист, альфасырец, большой человек, жалкий коп, диско звезда, философ дикого запада, хороший друг, горячий чикен щит и великий скромняга: 
+Илья Basisty Басистый"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 484.0
+offset_bottom = 840.0
+text = "Отступить назад"
+
+[node name="Button2" type="Button" parent="Control"]
+offset_left = 1116.0
+offset_top = 60.0
+offset_right = 1560.0
+offset_bottom = 840.0
+text = "Тоже кнопка назад"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]

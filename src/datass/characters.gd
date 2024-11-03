@@ -5,7 +5,7 @@ var CHARACTERS = [
 		"image": load("res://assets/images/mishas/Misha_the_agile_man.png"),
 		"sound": load("res://assets/sounds/characters/bruh.mp3"),
 		"title": "Михаил Второй Ловкий",
-		"subtitle": "Завсегдатай своих стримов, гигачад и просто хороший парень, познавший глубины танкового мастерства",
+		"subtitle": "Завсегдатай своих стримов, гигачад и просто хороший парень, но чёрт",
 	},
 	{
 		"image": load("res://assets/images/mishas/Misha_the_creeper.png"),
@@ -23,24 +23,30 @@ var CHARACTERS = [
 		"image": load("res://assets/images/mishas/fartboy.jpg"),
 		"sound": load("res://assets/sounds/characters/fart-with-reverb.mp3"),
 		"title": "Михаил Первый Широкий",
-		"subtitle": " ",
+		"subtitle": "Да, бывает даже такой Михаил",
 	},
 	{
 		"image": load("res://assets/images/mishas/fishhmishhhh.jpg"),
 		"sound": load("res://assets/sounds/characters/mister-fish.mp3"),
 		"title": "Рыб Михарыбов",
-		"subtitle": " ",
+		"subtitle": "Рыб Михаилов или Котхаил Котов? Но самый ключевой вопрос: это аватар или состояние души?",
 	},
 	{
 		"image": load("res://assets/images/mishas/hidden_guy.jpg"),
 		"sound": load("res://assets/sounds/characters/akh.mp3"),
 		"title": "Михаил ??? the Hidden",
-		"subtitle": " ",
+		"subtitle": "Мало что известно. Был замечен по ту сторону полого цилиндрического объекта",
 	},
 	{
 		"image": load("res://assets/images/mishas/121ibisha.jpg"),
 		"sound": load("res://assets/sounds/characters/cave.mp3"),
 		"title": "121B-иша",
-		"subtitle": " ",
+		"subtitle": "Самый верующий человек на планете",
+	},
+	{
+		"image": load("res://assets/images/mishas/witchhail.png"),
+		"sound": load("res://assets/sounds/characters/witch_mikhail_2.mp3"),
+		"title": "Ведьмиша",
+		"subtitle": "Карга маминой подруги",
 	}
 ]

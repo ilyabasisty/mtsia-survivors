@@ -140,7 +140,7 @@ _data = {
 radius = 64.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an45s"]
-bg_color = Color(0.682605, 0, 0.108086, 1)
+bg_color = Color(0, 0.917647, 0.172549, 0.713726)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
@@ -196,9 +196,9 @@ debug_color = Color(0.968089, 0.0774584, 0.410407, 0.42)
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 offset_left = -69.0
-offset_top = 67.0
+offset_top = 75.0
 offset_right = 70.0
-offset_bottom = 77.0
+offset_bottom = 85.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_an45s")
 value = 100.0
 show_percentage = false

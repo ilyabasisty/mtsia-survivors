@@ -16,6 +16,7 @@ func setup_mob():
 	current_enemy = Enemies.ENEMIES[Global.select_enemy_id]
 	health = current_enemy.health
 	$Mob/TextureRect.texture = current_enemy.image
+	%ProgressBar.max_value = health
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
@@ -31,6 +32,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage: int):
 	health -= damage
 	%Mob.play_hit_animation()
+	%ProgressBar.value = health
 	
 	if health <= 0:
 		Global.dead_count_in_current_swarm += 1

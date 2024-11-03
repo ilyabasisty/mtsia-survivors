@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://l23bvi10vr2v"]
+
+[ext_resource type="Texture2D" uid="uid://bmu41eabl0smu" path="res://assets/images/objects/based_stuuuuul.png" id="1_f8vvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2noe"]
+size = Vector2(56, 652)
+
+[node name="stulia_H" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k2noe")
+
+[node name="BasedStuuuuul" type="Sprite2D" parent="."]
+scale = Vector2(0.170984, 0.170985)
+texture = ExtResource("1_f8vvy")
+
+[node name="BasedStuuuuul2" type="Sprite2D" parent="."]
+position = Vector2(0, -125)
+scale = Vector2(0.170984, 0.170985)
+texture = ExtResource("1_f8vvy")
+
+[node name="BasedStuuuuul3" type="Sprite2D" parent="."]
+position = Vector2(0, 243.396)
+scale = Vector2(0.170984, 0.170985)
+texture = ExtResource("1_f8vvy")
+
+[node name="BasedStuuuuul4" type="Sprite2D" parent="."]
+position = Vector2(0, 118.396)
+scale = Vector2(0.170984, 0.170985)
+texture = ExtResource("1_f8vvy")
+
+[node name="BasedStuuuuul5" type="Sprite2D" parent="."]
+position = Vector2(0, -250)
+scale = Vector2(0.170984, 0.170985)
+texture = ExtResource("1_f8vvy")

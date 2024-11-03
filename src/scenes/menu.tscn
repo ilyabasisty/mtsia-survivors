@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqrsbns0ng13l"]
+[gd_scene load_steps=15 format=3 uid="uid://dqrsbns0ng13l"]
 
-[ext_resource type="Texture2D" uid="uid://0w051cka8m0m" path="res://assets/images/backgrounds/want_pitsa.jpg" id="1_k2pye"]
+[ext_resource type="Texture2D" uid="uid://dur5gqw105y8l" path="res://assets/images/backgrounds/base_back_1.png" id="1_c0uba"]
+[ext_resource type="Script" path="res://src/scenes/menu.gd" id="1_xilbn"]
 [ext_resource type="Script" path="res://src/scenes/start.gd" id="2_0boly"]
 [ext_resource type="AudioStream" uid="uid://cp2th70sohxte" path="res://assets/sounds/sample/wpn_select.mp3" id="2_e5t6d"]
+[ext_resource type="Texture2D" uid="uid://brefd7blpxax7" path="res://assets/images/backgrounds/base_back_text_1.png" id="2_mea8s"]
 [ext_resource type="Script" path="res://src/scenes/exit.gd" id="3_amoas"]
+[ext_resource type="Texture2D" uid="uid://bgxe5urq8s23v" path="res://assets/images/backgrounds/base_back_2.png" id="3_kpd4r"]
 [ext_resource type="Script" path="res://src/scenes/settings.gd" id="4_jiyrs"]
 [ext_resource type="Script" path="res://src/scenes/creators.gd" id="5_yinuv"]
 [ext_resource type="AudioStream" uid="uid://1gthjoo5kkdb" path="res://assets/sounds/music/gnome-tiktok-song.mp3" id="7_j0w83"]
@@ -11,12 +14,47 @@
 [sub_resource type="Theme" id="Theme_4ls33"]
 default_font_size = 36
 
-[node name="Menu" type="Node2D"]
+[sub_resource type="Animation" id="Animation_k2air"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseBackText1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.4, 1.4)]
+}
 
-[node name="WantPitsa" type="Sprite2D" parent="."]
-position = Vector2(886.5, 529.375)
-scale = Vector2(1.78125, 1.67766)
-texture = ExtResource("1_k2pye")
+[sub_resource type="Animation" id="Animation_qwe5t"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseBackText1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.4, 1.4), Vector2(1.68889, 1.68889), Vector2(1.4, 1.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p12ix"]
+_data = {
+"RESET": SubResource("Animation_k2air"),
+"new_animation": SubResource("Animation_qwe5t")
+}
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_xilbn")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -24,10 +62,24 @@ anchors_preset = 0
 offset_right = 1600.0
 offset_bottom = 900.0
 
+[node name="BaseBack1" type="Sprite2D" parent="Control"]
+position = Vector2(800, 450)
+texture = ExtResource("1_c0uba")
+metadata/_edit_lock_ = true
+
+[node name="BaseBack2" type="Sprite2D" parent="Control"]
+position = Vector2(800, 450)
+texture = ExtResource("3_kpd4r")
+
+[node name="BaseBackText1" type="Sprite2D" parent="Control"]
+position = Vector2(796, 403)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_mea8s")
+
 [node name="AudioButton" type="AudioStreamPlayer" parent="Control"]
 unique_name_in_owner = true
 stream = ExtResource("2_e5t6d")
-volume_db = -15.0
+volume_db = -30.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -35,9 +87,11 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 62.0
-offset_top = -423.0
-offset_right = 463.0
+offset_top = -259.0
+offset_right = 450.0
+offset_bottom = -51.0
 grow_vertical = 0
+alignment = 1
 
 [node name="start" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -46,13 +100,14 @@ text = "ЗАПУСТЫТ СЕРВЕР"
 script = ExtResource("2_0boly")
 
 [node name="settings" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "настройка"
 script = ExtResource("4_jiyrs")
 
 [node name="creators" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "раразрабрабработчикики"
+text = "об игре и авторе"
 script = ExtResource("5_yinuv")
 
 [node name="exit" type="Button" parent="Control/VBoxContainer"]
@@ -60,9 +115,14 @@ layout_mode = 2
 text = "выйти отсюда"
 script = ExtResource("3_amoas")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_p12ix")
+}
+
 [node name="AudioMain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_j0w83")
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
 parameters/looping = true
 
@@ -73,6 +133,7 @@ parameters/looping = true
 [connection signal="mouse_entered" from="Control/VBoxContainer/settings" to="Control/VBoxContainer/settings" method="_on_mouse_entered"]
 [connection signal="button_down" from="Control/VBoxContainer/creators" to="Control/VBoxContainer/creators" method="_on_button_down"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/creators" to="Control/VBoxContainer/creators" method="_on_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/creators" to="Control/VBoxContainer/creators" method="_on_pressed"]
 [connection signal="button_down" from="Control/VBoxContainer/exit" to="Control/VBoxContainer/exit" method="_on_button_down"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/exit" to="Control/VBoxContainer/exit" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/exit" to="Control/VBoxContainer/exit" method="_on_pressed"]

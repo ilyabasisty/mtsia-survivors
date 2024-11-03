@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://vg162a5qpudy"]
 
-[ext_resource type="Script" path="res://src/player/bullet.gd" id="1_ge3n6"]
-[ext_resource type="Texture2D" uid="uid://ccw8cuewl354l" path="res://assets/images/weapons/frruuuutmotiv_projectile.png" id="1_i8jai"]
+[ext_resource type="Script" path="res://src/player/projectiles/fruut_bullet.gd" id="1_ge3n6"]
+[ext_resource type="Texture2D" uid="uid://ccw8cuewl354l" path="res://assets/images/weapons/projectiles/frruuuutmotiv_projectile.png" id="1_i8jai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr186"]
 size = Vector2(13, 34)
 
-[node name="Bullet" type="Area2D"]
+[node name="fruut_bullet" type="Area2D"]
 top_level = true
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_ge3n6")
+damage = 7
 
 [node name="FrruuuutmotivProjectile" type="Sprite2D" parent="."]
 position = Vector2(-1.19209e-07, 1.19209e-07)

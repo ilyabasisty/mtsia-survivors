@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccw8cuewl354l"
-path="res://.godot/imported/frruuuutmotiv_projectile.png-df26477cfd7ea6ca7723ba18065d31c1.ctex"
+uid="uid://mp7pqfqkca6v"
+path="res://.godot/imported/perduska_projectile.png-9a17bb1e6f42830f45fcdd81eda2d27a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/weapons/frruuuutmotiv_projectile.png"
-dest_files=["res://.godot/imported/frruuuutmotiv_projectile.png-df26477cfd7ea6ca7723ba18065d31c1.ctex"]
+source_file="res://assets/images/weapons/projectiles/perduska_projectile.png"
+dest_files=["res://.godot/imported/perduska_projectile.png-9a17bb1e6f42830f45fcdd81eda2d27a.ctex"]
 
 [params]
 

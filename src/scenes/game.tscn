@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgbx7vwbb1jvd"]
+[gd_scene load_steps=10 format=3 uid="uid://dgbx7vwbb1jvd"]
 
 [ext_resource type="Script" path="res://src/scenes/game.gd" id="1_bcwr1"]
 [ext_resource type="PackedScene" uid="uid://b8j467kdcaoxd" path="res://src/player/player.tscn" id="1_gelbp"]
 [ext_resource type="PackedScene" uid="uid://b8nlt6kod8mnh" path="res://src/scenes/hud.tscn" id="2_k18lv"]
 [ext_resource type="PackedScene" uid="uid://bf4qlre0l1r2v" path="res://src/objects/stul.tscn" id="2_pha0n"]
 [ext_resource type="AudioStream" uid="uid://bk7y5c787baax" path="res://assets/sounds/music/mtsia_theme.mp3" id="2_ybetl"]
+[ext_resource type="PackedScene" uid="uid://r41qmgvkkci4" path="res://src/objects/stulia_h.tscn" id="6_7k6jt"]
+[ext_resource type="PackedScene" uid="uid://l23bvi10vr2v" path="res://src/objects/stulia_w.tscn" id="7_0yhfb"]
 
 [sub_resource type="Curve2D" id="Curve2D_2wv1f"]
 _data = {
@@ -53,22 +55,22 @@ position = Vector2(-798, -450)
 [node name="stulia" type="Node" parent="."]
 
 [node name="stul2" parent="stulia" instance=ExtResource("2_pha0n")]
-position = Vector2(235, 162)
+position = Vector2(311, 3)
 
 [node name="stul" parent="stulia" instance=ExtResource("2_pha0n")]
-position = Vector2(779, 205)
+position = Vector2(846, 192)
 
 [node name="stul3" parent="stulia" instance=ExtResource("2_pha0n")]
-position = Vector2(180, 521)
+position = Vector2(-172, 553)
 
 [node name="stul4" parent="stulia" instance=ExtResource("2_pha0n")]
-position = Vector2(1138, 626)
+position = Vector2(1287, 740)
 
 [node name="stul5" parent="stulia" instance=ExtResource("2_pha0n")]
-position = Vector2(1351, 308)
+position = Vector2(1659, 60)
 
 [node name="stul6" parent="stulia" instance=ExtResource("2_pha0n")]
-position = Vector2(369, 794)
+position = Vector2(207, 883)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -124,6 +126,38 @@ offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Уйти"
+
+[node name="stulia2" type="Node2D" parent="."]
+
+[node name="stulia_H" parent="stulia2" instance=ExtResource("6_7k6jt")]
+position = Vector2(684, -203)
+
+[node name="stulia_H2" parent="stulia2" instance=ExtResource("6_7k6jt")]
+position = Vector2(1608, -203)
+
+[node name="stulia_H3" parent="stulia2" instance=ExtResource("6_7k6jt")]
+position = Vector2(-237, -203)
+
+[node name="stulia_H4" parent="stulia2" instance=ExtResource("6_7k6jt")]
+position = Vector2(684, 1169)
+
+[node name="stulia_H5" parent="stulia2" instance=ExtResource("6_7k6jt")]
+position = Vector2(1608, 1169)
+
+[node name="stulia_H6" parent="stulia2" instance=ExtResource("6_7k6jt")]
+position = Vector2(-237, 1169)
+
+[node name="stulia_H7" parent="stulia2" instance=ExtResource("7_0yhfb")]
+position = Vector2(2223, 805)
+
+[node name="stulia_H8" parent="stulia2" instance=ExtResource("7_0yhfb")]
+position = Vector2(2223, 166)
+
+[node name="stulia_H9" parent="stulia2" instance=ExtResource("7_0yhfb")]
+position = Vector2(-485, 805)
+
+[node name="stulia_H10" parent="stulia2" instance=ExtResource("7_0yhfb")]
+position = Vector2(-485, 166)
 
 [connection signal="health_deplated" from="Player" to="." method="_on_player_health_deplated"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

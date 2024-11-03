@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgh2p3vhs6sj2"]
+
+[ext_resource type="Script" path="res://src/player/projectiles/dungeo_bullet.gd" id="1_50o5a"]
+[ext_resource type="Texture2D" uid="uid://225yu314uhki" path="res://assets/images/weapons/projectiles/est_probitie_projectile.png" id="1_cv4q5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3binh"]
+radius = 59.4138
+
+[sub_resource type="Animation" id="Animation_sa4t3"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EstProbitieProjectile:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.128889, 0.128889), Vector2(0.265637, 0.127231), Vector2(0.128889, 0.128889)]
+}
+
+[sub_resource type="Animation" id="Animation_wm57m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EstProbitieProjectile:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.128889, 0.128889)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qt2lt"]
+_data = {
+"RESET": SubResource("Animation_wm57m"),
+"new_animation": SubResource("Animation_sa4t3")
+}
+
+[node name="dungeo_bullet" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_50o5a")
+
+[node name="EstProbitieProjectile" type="Sprite2D" parent="."]
+scale = Vector2(0.128889, 0.128889)
+texture = ExtResource("1_cv4q5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3binh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qt2lt")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

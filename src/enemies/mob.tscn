@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca8candb78ftu"]
+[gd_scene load_steps=10 format=3 uid="uid://ca8candb78ftu"]
 
 [ext_resource type="Script" path="res://src/enemies/mob_inner.gd" id="1_1ud24"]
 [ext_resource type="Script" path="res://src/enemies/mob.gd" id="1_3r7rv"]
@@ -99,9 +99,16 @@ _data = {
 "walk": SubResource("Animation_2adgq")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7wy5"]
+bg_color = Color(0.764706, 0, 0.12549, 0.713726)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_3r7rv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -129,3 +136,13 @@ offset_right = 312.0
 offset_bottom = 260.0
 scale = Vector2(0.25641, 0.25641)
 expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -53.0
+offset_top = -52.0
+offset_right = 54.0
+offset_bottom = -47.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_j7wy5")
+value = 100.0
+show_percentage = false
